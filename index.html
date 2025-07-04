@@ -4,55 +4,150 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Snapfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: sans-serif;
+      scroll-behavior: smooth;
+      background-color: #f3f4f6;
+      color: #111827;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      margin-left: 1rem;
+      color: #2563eb;
+      text-decoration: none;
+    }
+    main {
+      padding-top: 100px;
+    }
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .gallery-container {
+      position: relative;
+      overflow: hidden;
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .slide {
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .slide img {
+      max-width: 100%;
+      max-height: 500px;
+      border-radius: 8px;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+      object-fit: cover;
+    }
+    .nav-buttons {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1rem;
+    }
+    .nav-buttons button {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
-  <header class="bg-white shadow-md fixed top-0 w-full z-50">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">Snapfolio</h1>
-      <nav class="space-x-4">
-        <a href="#gallery" class="text-blue-600 hover:underline">Gallery</a>
-        <a href="#about" class="text-blue-600 hover:underline">About</a>
-        <a href="#contact" class="text-blue-600 hover:underline">Contact</a>
-      </nav>
-    </div>
+<body>
+  <header>
+    <nav>
+      <h1>Snapfolio</h1>
+      <div>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
   </header>
 
-  <main class="pt-24">
-    <section class="max-w-6xl mx-auto px-4 py-12" id="gallery">
-      <h2 class="text-3xl font-bold text-center mb-8">Photo Gallery</h2>
-      <div class="swiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide flex justify-center">
-              <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=800&q=80" class="rounded-lg shadow-md" alt="Portrait" />
-            </div>
-            <div class="swiper-slide flex justify-center">
-              <img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?auto=format&fit=crop&w=800&q=80" class="rounded-lg shadow-md" alt="Nature" />
-            </div>
-            <div class="swiper-slide flex justify-center">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" class="rounded-lg shadow-md" alt="Architecture" />
-            </div>
+  <main>
+    <section id="gallery">
+      <h2 class="text-3xl font-bold mb-8">Photo Gallery</h2>
+      <div class="gallery-container">
+        <div class="slides" id="slides">
+          <div class="slide"><img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=800&q=80" alt="Portrait" /></div>
+          <div class="slide"><img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?auto=format&fit=crop&w=800&q=80" alt="Nature" /></div>
+          <div class="slide"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Architecture" /></div>
+        </div>
+        <div class="nav-buttons">
+          <button onclick="prevSlide()">&#10094;</button>
+          <button onclick="nextSlide()">&#10095;</button>
         </div>
       </div>
     </section>
 
-    <section id="about" class="bg-white py-12 px-4">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-2xl font-bold mb-4">About Snapfolio</h2>
-        <p class="text-gray-700">Snapfolio is a sleek, single-page portfolio template for photographers who want to showcase their best work. Built with Tailwind CSS and Swiper.js, it offers smooth interactivity and responsive design for every device.</p>
-      </div>
+    <section id="about">
+      <h2>About Snapfolio</h2>
+      <p>Snapfolio is a sleek, single-page portfolio template for photographers who want to showcase their best work. This version is built without any external frameworks or libraries, for maximum control and lightweight performance.</p>
     </section>
 
-    <section id="contact" class="py-12 px-4">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-2xl font-bold mb-4">Contact</h2>
-        <p>Get in touch at <a href="mailto:hello@snapfolio.com" class="text-blue-600 underline">hello@snapfolio.com</a></p>
-      </div>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Get in touch at <a href="mailto:williamjonahmci@icloud.com" style="color:#2563eb;text-decoration:underline;">williamjonahmci@icloud.com</a></p>
     </section>
   </main>
 
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script src="script.js"></script>
+  <script>
+    document.addEventListener('keydown', function(event) {
+    if (event.key === 'ArrowLeft') {
+        prevSlide();
+    } else if (event.key === 'ArrowRight') {
+        nextSlide();
+    }
+});
+    let currentIndex = 0;
+    const slides = document.getElementById('slides');
+    const totalSlides = slides.children.length;
+
+    function updateSlidePosition() {
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlidePosition();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlidePosition();
+    }
+
+    setInterval(nextSlide, 4000); // Auto slide every 4 seconds
+  </script>
 </body>
 </html>
