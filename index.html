@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snapfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <header class="bg-white shadow-md fixed top-0 w-full z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Snapfolio</h1>
+      <nav class="space-x-4">
+        <a href="#gallery" class="text-blue-600 hover:underline">Gallery</a>
+        <a href="#about" class="text-blue-600 hover:underline">About</a>
+        <a href="#contact" class="text-blue-600 hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-24">
+    <section class="max-w-6xl mx-auto px-4 py-12" id="gallery">
+      <h2 class="text-3xl font-bold text-center mb-8">Photo Gallery</h2>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide flex justify-center">
+              <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=800&q=80" class="rounded-lg shadow-md" alt="Portrait" />
+            </div>
+            <div class="swiper-slide flex justify-center">
+              <img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?auto=format&fit=crop&w=800&q=80" class="rounded-lg shadow-md" alt="Nature" />
+            </div>
+            <div class="swiper-slide flex justify-center">
+                <img src="https://images.unsplash.com/photo-1529429611276-8270d2213b9a?auto=format&fit=crop&w=800&q=80" class="rounded-lg shadow-md" alt="Architecture" />
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="bg-white py-12 px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-4">About Snapfolio</h2>
+        <p class="text-gray-700">Snapfolio is a sleek, single-page portfolio template for photographers who want to showcase their best work. Built with Tailwind CSS and Swiper.js, it offers smooth interactivity and responsive design for every device.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="py-12 px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-4">Contact</h2>
+        <p>Get in touch at <a href="mailto:hello@snapfolio.com" class="text-blue-600 underline">hello@snapfolio.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
